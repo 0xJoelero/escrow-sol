@@ -57,7 +57,7 @@ contract Escrow {
 
     function payBalance() private {
         arbiter.transfer(balance / 100);
-        if (seller.send(balance)) {
+        if (seller.transfer(balance)) {
             balance = 0;
         } else {
             revert();
